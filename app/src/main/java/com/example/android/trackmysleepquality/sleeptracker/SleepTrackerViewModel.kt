@@ -35,7 +35,7 @@ class SleepTrackerViewModel(
         application: Application) : AndroidViewModel(application) {
 
     /**
-     * viewModelJob allows us to cancel all coroutines started by this ViewModel.
+     * viewModelJob allows us to cancel all coroutines started by this ViewModel.**/
 
     private var viewModelJob = Job()
 
@@ -50,7 +50,6 @@ class SleepTrackerViewModel(
      * a [ViewModel] update the UI after performing some processing.
      */
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-     */
 
 
     private var tonight = MutableLiveData<SleepNight?>()
@@ -241,15 +240,16 @@ class SleepTrackerViewModel(
         _showSnackbarEvent.value = true
     }
 
-    /**
-     * Called when the ViewModel is dismantled.
+
+    /* * Called when the ViewModel is dismantled.
      * At this point, we want to cancel all coroutines;
      * otherwise we end up with processes that have nowhere to return to
      * using memory and resources.
-
+    */
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
     }
-     */
+
+
 }
